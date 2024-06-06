@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
 # Configuration
-TWITCH_NAME = 'twitch.tv/gweng1'
+TWITCH_NAME = 'twitch.tv/yaga4'
 NUMBER_OF_VIEWERS = 5
 
 if __name__ == "__main__":
@@ -38,7 +38,6 @@ if __name__ == "__main__":
         submit_button.click()
 
         driver.implicitly_wait(5)
-
 
         # DEBUG
         #print('')
