@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 
 # Configuration
 TWITCH_NAME = 'twitch.tv/yaga4'
-NUMBER_OF_VIEWERS = 5
+NUMBER_OF_VIEWERS = 20
 
 if __name__ == "__main__":
 
@@ -16,7 +16,7 @@ if __name__ == "__main__":
     for x in range(NUMBER_OF_VIEWERS):
         # Creates headless environment
         options = Options()
-        #options.add_argument("--headless=new")
+        options.add_argument("--headless=new")
 
         # Sets up Chrome service
         service = Service('Driver/chromedriver.exe')
@@ -49,4 +49,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         # Quit all drivers on exit
         for driver in drivers:
-            driver.quit()
+            driver.quit() 
