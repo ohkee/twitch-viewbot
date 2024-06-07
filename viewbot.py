@@ -1,52 +1,53 @@
 import time
+import random
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
 # Configuration
-TWITCH_NAME = 'twitch.tv/yaga4'
-NUMBER_OF_VIEWERS = 20
+TWITCH_NAME = 'twitch.tv/gweng1'
+NUMBER_OF_VIEWERS = 30
+
+def create_driver():
+    options = Options()
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    options.add_argument('--headless')
+    options.add_argument('--disable-logging')
+    options.add_argument('--disable-gpu') 
+    options.add_argument('--log-level=3')
+    options.add_argument("--mute-audio")
+    options.add_argument('--disable-extensions')
+    options.add_argument('--disable-plugins')
+    options.add_argument('--disable-dev-shm-usage')
+    service = Service('Driver/chromedriver.exe')
+    return webdriver.Chrome(service=service, options=options)
+
+def randomize_server(): 
+    servers = ['https://www.croxyproxy.com/','https://proxyium.com/', 'https://www.croxy.org/', 'https://www.blockaway.net/']
+    return random.choice(servers)
 
 if __name__ == "__main__":
 
-    drivers = []
-    
+    driver = create_driver()
+
     for x in range(NUMBER_OF_VIEWERS):
-        # Creates headless environment
-        options = Options()
-        options.add_argument("--headless=new")
-
-        # Sets up Chrome service
-        service = Service('Driver/chromedriver.exe')
-
-        # Creates Chrome driver and adds to the list
-        driver = webdriver.Chrome(service=service, options=options)
-        drivers.append(driver)
-
-        # Gets web proxy
-        driver.get('https://proxyium.com/')
+        driver.switch_to.new_window('window')
+        driver.get(randomize_server())
         driver.implicitly_wait(2)
 
-        # Finds input object
         input_box = driver.find_element(by=By.NAME, value='url')
         input_box.send_keys(TWITCH_NAME)
-
-        # Clicks submit
-        submit_button = driver.find_element(by=By.ID, value='unique-btn-blue')
-        submit_button.click()
-
-        driver.implicitly_wait(5)
-
-        # DEBUG
-        #print('')
+        input_box.send_keys(Keys.RETURN)
+        driver.implicitly_wait(2)
 
     # Keep the script running to keep all browser windows open
     try:
         while True:
-            time.sleep(1)    
+            time.sleep(60)    
     except KeyboardInterrupt:
-        # Quit all drivers on exit
-        for driver in drivers:
-            driver.quit() 
+       # Close all drivers on exit
+        print("All browser windows have been closed.")
+        driver.quit()

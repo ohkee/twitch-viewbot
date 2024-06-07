@@ -1,0 +1,9 @@
+TODO: 
+Priority - 
+    1) Close duplicate proxies - this is a frequent issue that stops 1/2 - 2/3 from being executed
+    2) Wait when there is 'waiting for proxy' 
+
+Cool - 
+    1) Create GUI
+
+DONE: 
