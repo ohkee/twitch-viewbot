@@ -8,12 +8,14 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
 # Configuration
-TWITCH_NAME = 'twitch.tv/gweng1'
-NUMBER_OF_VIEWERS = 30
+PLATFORM = 'twitch.tv/'
+PLATFORM_NAME = PLATFORM +'yaga4'
+NUMBER_OF_VIEWERS = 60
 
 def create_driver():
     options = Options()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    options.add_argument("--window-size=800,600")
     options.add_argument('--headless')
     options.add_argument('--disable-logging')
     options.add_argument('--disable-gpu') 
