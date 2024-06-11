@@ -1,9 +1,11 @@
 TODO: 
 Priority - 
     1) Create GUI
-        i: create method(combobox), platform (combo box), channel, viewers, status, start script
-        ii: add cpu/ram usage
+        i: make functional
+        ii: add config
 
     2) Wait when there is 'waiting for proxy' 
 
 DONE: 
+* create method(combobox), platform (combo box), channel, viewers, status, start script
+* add cpu/ram usage
