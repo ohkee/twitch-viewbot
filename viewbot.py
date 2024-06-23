@@ -3,14 +3,14 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
 
 import random
-import time
 
 def create_driver():
     options = Options()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    options.add_argument("--window-size=800,600")
+    options.add_argument("--window-size=100,50")
     options.add_argument('--headless')
     options.add_argument('--disable-logging')
     options.add_argument('--disable-gpu') 
@@ -44,4 +44,5 @@ def start_viewbot(stop_flag, platform, channel_name, number_of_viewers):
                 input_box = driver.find_element(by=By.NAME, value='url')
                 input_box.send_keys(f'{platform}.tv/{channel_name}')
                 input_box.send_keys(Keys.RETURN)
-                driver.implicitly_wait(2)
+
+                driver.implicitly_wait(5)

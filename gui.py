@@ -137,9 +137,8 @@ def main():
     channel_name = StringVar(value='')
     number_of_viewers = IntVar(value=0)
 
-
     method_frame, method_box_var = create_method_frame(app) 
-    platform_frame, platform_box_var = create_platform_frame(app)
+    platform_frame, platform_box = create_platform_frame(app)
 
     create_channel_entry(platform_frame)
     create_viewers_entry(platform_frame)  
