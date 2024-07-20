@@ -3,7 +3,6 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.action_chains import ActionChains
 
 import random
 
@@ -23,7 +22,7 @@ def create_driver():
     return webdriver.Chrome(service=service, options=options)
 
 def randomize_server(): 
-    servers = ['https://www.croxyproxy.com/','https://proxyium.com/', 'https://www.croxy.org/', 'https://www.blockaway.net/']
+    servers = ['https://www.croxyproxy.com/','https://proxyium.com/', 'https://www.croxy.org/', 'https://www.blockaway.net/', 'https://www.youtubeunblocked.live/']
     return random.choice(servers)
 
 def start_viewbot(stop_flag, platform, channel_name, number_of_viewers):

@@ -19,14 +19,14 @@ def update_cpu_label():
     global cpu_percent_label
     cpu_percent = psutil.cpu_percent()
     cpu_percent_label.config(text=f'CPU: {cpu_percent}%')
-    # Schedule the function to run again after 1000 milliseconds (1 second)
+
     cpu_percent_label.after(1000, update_cpu_label)
 
 def update_ram_label():
     global ram_percent_label
     ram_percent = psutil.virtual_memory().percent
     ram_percent_label.config(text=f'RAM: {ram_percent}%')
-    # Schedule the function to run again after 1000 milliseconds (1 second)
+
     ram_percent_label.after(1000, update_ram_label)
 
 def increment():
@@ -64,19 +64,19 @@ def create_platform_frame(master):
     platform_label = Label(master=platform_frame, text="Platform")
     platform_label.grid(row=0, column=0, padx=10, pady=0, sticky="w")
 
-    platform_box = Combobox(master=platform_frame, values=['twitch', 'kick'], textvariable=platform)
+    platform_box = Combobox(master=platform_frame, values=['twitch', 'kick'], textvariable=platform, state='disabled')
     platform_box.grid(row=1, column=0, padx=10, pady=10, sticky="ew")
 
     # CPU / RAM
     global cpu_percent_label 
     cpu_percent_label = Label(platform_frame, text='CPU: -')
     cpu_percent_label.grid(row=1, column=1, padx=50, pady=10)
-    update_cpu_label() # Start updating the CPU label
+    update_cpu_label() 
 
     global ram_percent_label 
     ram_percent_label = Label(platform_frame, text='RAM: -')
     ram_percent_label.grid(row=2, column=1, padx=50, pady=10)
-    update_ram_label() # Start updating the RAM label
+    update_ram_label() 
     return platform_frame, platform
 
 def create_channel_entry(platform_frame):
@@ -128,7 +128,7 @@ def main():
     app.geometry(RES)
     app.resizable(False, False)
     app.iconbitmap('icon.ico')
-    app.title('Viewbot')
+    app.title('ricksmomishot.exe')
 
     # Initialize Tkinter variables
     global platform, method, channel_name, number_of_viewers
