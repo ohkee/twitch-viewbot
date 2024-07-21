@@ -8,7 +8,7 @@ https://github.com/user-attachments/assets/b16fd7df-423d-46fb-89a8-0ee5618ba76b
 
 ## Releases
 
-- [v0.1](https://github.com/ohkee/twitch-viewbot/releases/tag/v1.0) -- initial release
+- [v0.1](https://github.com/ohkee/twitch-viewbot/releases/tag/v0.1) -- initial release
 
 ## TODO
 
